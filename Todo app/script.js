@@ -91,10 +91,13 @@ function editItem(id) {
     if (li) {
       const editInput = document.createElement("input");
       editInput.type = "text";
+      editInput.classList = 'edit-input'
       editInput.value = todo.text;
 
       const saveButton = createButton("Save", "save", () => saveEdit(id, editInput));
       const cancelButton = createButton("Cancel", "cancel", () => cancelEdit(id));
+      saveButton.classList = 'save'
+      cancelButton.classList = 'cancel'
 
       li.innerHTML = "";
       li.appendChild(editInput);
