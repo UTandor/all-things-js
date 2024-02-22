@@ -1,5 +1,4 @@
 #container {
-  border: 1px solid red;
   width: 250px;
   padding: 20px;
   display: grid;
@@ -25,4 +24,19 @@
 
 .button:hover {
   background-color: #d3d3d3; /* Change background color on hover */
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  width: 300px;
+}
+
+.answer {
+  background-color: gray;
+  border-radius: 2px;
+  width: auto;
+  padding: 20px;
+  height: 20px;
 }
