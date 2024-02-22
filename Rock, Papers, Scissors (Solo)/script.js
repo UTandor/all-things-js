@@ -1,21 +1,22 @@
+const result = document.createElement("p");
 const evaluateGame = () => {
   const moves = ["rock", "paper", "scissor"];
 
   const playerMove = document.getElementById("input").value;
   const aiMove = moves[Math.floor(Math.random() * moves.length)];
-  let result = "";
+  let response = "";
 
   switch (playerMove) {
     case "rock":
       switch (aiMove) {
         case "rock":
-          result = "Draw";
+          response = "Draw";
           break;
         case "scissor":
-          result = "AI Lost";
+          response = "AI Lost";
           break;
         case "paper":
-          result = "AI Won";
+          response = "AI Won";
           break;
       }
       break;
@@ -23,13 +24,13 @@ const evaluateGame = () => {
     case "paper":
       switch (aiMove) {
         case "paper":
-          result = "Draw";
+          response = "Draw";
           break;
         case "rock":
-          result = "AI Lost";
+          response = "AI Lost";
           break;
         case "scissor":
-          result = "AI Won";
+          response = "AI Won";
           break;
       }
       break;
@@ -37,21 +38,27 @@ const evaluateGame = () => {
     case "scissor":
       switch (aiMove) {
         case "scissor":
-          result = "Draw";
+          response = "Draw";
           break;
         case "paper":
-          result = "AI Lost";
+          response = "AI Lost";
           break;
         case "rock":
-          result = "AI Won";
+          response = "AI Won";
           break;
       }
       break;
   }
-  return { result, aiMove };
+  return { response, aiMove };
 };
 
 const playGame = () => {
-  const { result, aiMove } = evaluateGame();
-  
+  const { response, aiMove } = evaluateGame();
+
+    result.innerHTML =
+      `<strong>${response}</strong>` +
+      " because the AI played: " +
+      `<strong>${aiMove}</strong>`;
 };
+
+document.body.appendChild(result);
