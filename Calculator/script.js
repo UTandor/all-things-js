@@ -21,12 +21,20 @@ const buttons = [
 ];
 
 const container = document.getElementById("container");
+let formula = "";
+
+const changeFormula = (name) => {
+  const answer = document.getElementById("answer");
+  answer.innerHTML = name;
+};
 
 for (let i = 0; i < buttons.length; i += 1) {
   const button = document.createElement("button");
   button.innerHTML = buttons[i].name;
   button.id = buttons[i].id;
+  button.name = buttons[i].name;
   button.classList = "button";
+  button.addEventListener("click", () => changeFormula(button.name));
 
   container.appendChild(button);
 }
