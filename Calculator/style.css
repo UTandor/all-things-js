@@ -7,6 +7,11 @@
   grid-template-rows: repeat(5, 0.1fr);
 }
 
+#zero {
+  grid-column: span 2;
+  width: auto;
+}
+
 .button {
   width: 50px;
   height: 50px;
