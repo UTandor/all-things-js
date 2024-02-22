@@ -1,7 +1,13 @@
 const result = document.createElement("p");
 result.id = "result";
 
+const getValues = () => {
+  const fromUnit = document.getElementById("unit").value;
+  const toUnit = document.getElementById("unit2").value;
+  const input = parseFloat(document.getElementById("weight").value);
 
+  return { fromUnit, toUnit, input };
+};
 
 const changeWeight = () => {
   const { fromUnit, toUnit, input } = getValues();
