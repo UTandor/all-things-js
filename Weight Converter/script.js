@@ -57,6 +57,28 @@ const changeWeight = () => {
   }
 };
 
+const setWeight = () => {
+  const { toUnit } = getValues();
+  const response = changeWeight();
 
+  switch (toUnit) {
+    case "g":
+      result.innerHTML = `Your weight in grams is: ${response} g`;
+      break;
+
+    case "kg":
+      result.innerHTML = `Your weight in kilos is: ${response} kg`;
+      break;
+
+    case "po":
+      result.innerHTML = `Your weight in pounds is: ${response} po`;
+      break;
+
+    default:
+      break;
+  }
+
+  console.log(response);
+};
 
 document.body.appendChild(result);
