@@ -1,3 +1,7 @@
+body {
+  font-family: sans-serif;
+
+}
 #container {
   width: 250px;
   padding: 20px;
@@ -14,7 +18,7 @@
 .button {
   width: 50px;
   height: 50px;
-  user-select: nonef;
+  user-select: none;
   margin: 5px;
   text-align: center;
   font-size: 18px;
@@ -37,6 +41,8 @@
 .answer {
   background-color: gray;
   border-radius: 2px;
+  font-size: larger;
+  color: rgb(224, 224, 224);
   width: auto;
   padding: 20px;
   height: 20px;
