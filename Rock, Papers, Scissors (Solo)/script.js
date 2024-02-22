@@ -2,47 +2,56 @@ const evaluateGame = () => {
   const moves = ["rock", "paper", "scissor"];
 
   const playerMove = document.getElementById("input").value;
-  const aiMove = moves[Math.random(0, moves.length - 1)];
+  const aiMove = moves[Math.floor(Math.random() * moves.length)];
+  let result = "";
 
   switch (playerMove) {
     case "rock":
       switch (aiMove) {
         case "rock":
-          return "Draw";
+          result = "Draw";
+          break;
         case "scissor":
-          return "AI Lost";
+          result = "AI Lost";
+          break;
         case "paper":
-          return "AI Won";
+          result = "AI Won";
+          break;
       }
       break;
 
     case "paper":
       switch (aiMove) {
         case "paper":
-          return "Draw";
+          result = "Draw";
+          break;
         case "rock":
-          return "AI Lost";
+          result = "AI Lost";
+          break;
         case "scissor":
-          return "AI Won";
+          result = "AI Won";
+          break;
       }
       break;
 
     case "scissor":
       switch (aiMove) {
         case "scissor":
-          return "Draw";
+          result = "Draw";
+          break;
         case "paper":
-          return "AI Lost";
+          result = "AI Lost";
+          break;
         case "rock":
-          return "AI Won";
+          result = "AI Won";
+          break;
       }
       break;
-
-    default:
-      break;
   }
+  return { result, aiMove };
 };
 
 const playGame = () => {
-  console.log(evaluateGame());
+  const { result, aiMove } = evaluateGame();
+  
 };
