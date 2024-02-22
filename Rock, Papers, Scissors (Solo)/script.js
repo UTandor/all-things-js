@@ -53,12 +53,16 @@ const evaluateGame = () => {
 };
 
 const playGame = () => {
+  result.innerHTML = 'Loading...'
+
   const { response, aiMove } = evaluateGame();
+  setTimeout(() => {
 
     result.innerHTML =
       `<strong>${response}</strong>` +
       " because the AI played: " +
       `<strong>${aiMove}</strong>`;
+  }, 500);
 };
 
 document.body.appendChild(result);
