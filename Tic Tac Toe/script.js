@@ -62,7 +62,7 @@ const checkWinner = () => {
         board[i][j] === board[i][j + 2]
       ) {
         winner = board[i][j];
-        console.log("Horizontal Winner:", winner);
+        winCondition = "horizontal completion";
       }
 
       if (
@@ -71,7 +71,7 @@ const checkWinner = () => {
         board[j][i] === board[j + 2][i]
       ) {
         winner = board[j][i];
-        console.log("Vertical Winner:", winner);
+        winCondition = "vertical completion";
       }
 
       if (
@@ -80,6 +80,7 @@ const checkWinner = () => {
         board[0][0] !== "."
       ) {
         winner = board[0][0];
+        winCondition = "main diagonal";
       }
       if (
         board[0][2] === board[1][1] &&
@@ -87,12 +88,13 @@ const checkWinner = () => {
         board[0][2] !== "."
       ) {
         winner = board[0][2];
+        winCondition = "secondary diagonal";
       }
     }
   }
 
   if (winner !== "" && winCondition !== "") {
-    winConditionElement.innerHTML = "Won via: " + winCondition;
+    winConditionElement.innerHTML = winner + " won via: " + winCondition;
     winnerElement.innerHTML = "Winner: " + winner;
   }
 };
