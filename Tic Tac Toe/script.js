@@ -1,7 +1,7 @@
 const boardElement = document.getElementById("board");
 
 let board = [
-  [".", "X", "."],
+  [".", ".", "."],
   [".", ".", "."],
   [".", ".", "."],
 ];
@@ -14,7 +14,7 @@ document.body.appendChild(player);
 let winnerElement = document.createElement("p");
 document.body.appendChild(winnerElement);
 
-const renderBoard = () => {
+const renderBoard = (persistTurn) => {
   const boxes = document.querySelectorAll(".box");
 
   if (boxes) {
@@ -34,19 +34,32 @@ const renderBoard = () => {
     }
   }
 
-  switch (turn) {
-    case "X":
-      turn = "O";
-      break;
+  if (!persistTurn) {
+    switch (turn) {
+      case "X":
+        turn = "O";
+        break;
 
-    case "O":
-      turn = "X";
+      case "O":
+        turn = "X";
+    }
   }
   player.innerHTML = turn;
 };
 
 const checkWinner = () => {
-  let winner = "fd";
+  let winner = "";
+
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board.length; j++) {
+      console.log(board)
+      console.log(board[i][j], board[i + 1][j + 1], board[i + 2][j + 2]);
+      if ((board[i][j] === board[i + 1][j + 1]) === board[i + 2][j + 2]) {
+        winner = board[i][j];
+      }
+      break;
+    }
+  }
 
   if (winner !== "") {
     console.log("winner found");
@@ -57,8 +70,18 @@ const checkWinner = () => {
 
 const changeContents = (id) => {
   id = id.split("-");
-  board[id[1]][id[2]] = turn;
-  renderBoard();
+  switch (board[id[1]][id[2]]) {
+    case ".":
+      board[id[1]][id[2]] = turn;
+      renderBoard(false);
+
+      break;
+
+    default:
+      renderBoard(true);
+
+      break;
+  }
   checkWinner();
 };
 
