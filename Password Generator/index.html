@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Password Generator</title>
-  <style>
-   
-  </style>
-</head>
+  <body>
+    <h1>Password Generator:</h1>
+    <label for="length">Password Length:</label>
+    <input id="length" type="number" min="1" placeholder="Length" />
+    <button onclick="generate()">Generate</button>
+    <p id="passwordResult"></p>
 
-<body>
-  <h1>Password Generator:</h1>
-  <label for="length">Password Length:</label>
-  <input id="length" type="number" min="1" placeholder="Length" />
-  <button onclick="generate()">Generate</button>
-  <p id="passwordResult"></p>
-
-  <script defer src="script.js"></script>
-</body>
-
+    <script defer src="script.js"></script>
+  </body>
 </html>
