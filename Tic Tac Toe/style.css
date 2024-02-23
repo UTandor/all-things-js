@@ -1,0 +1,15 @@
+.box {
+  padding: 12.5px 20px;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  line-height: 0px;
+  align-items: center;
+}
+
+#board {
+  width: 250px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 0.1fr);
+}
