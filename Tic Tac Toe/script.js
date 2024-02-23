@@ -32,7 +32,9 @@ const renderBoard = (persistTurn) => {
       box.innerHTML = board[i][j];
       box.classList = "box";
       box.id = `box-${i}-${j}`;
-      box.addEventListener("click", () => changeContents(box.id));
+      if (!winnerElement.innerHTML) {
+        box.addEventListener("click", () => changeContents(box.id));
+      }
       boardElement.appendChild(box);
     }
   }
@@ -96,6 +98,7 @@ const checkWinner = () => {
   if (winner !== "" && winCondition !== "") {
     winConditionElement.innerHTML = winner + " won via: " + winCondition;
     winnerElement.innerHTML = "Winner: " + winner;
+    renderBoard(false)
   }
 };
 

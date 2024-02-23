@@ -9,6 +9,7 @@
 
 #board {
   width: 250px;
+  user-select: none;
   padding: 20px;
   display: grid;
   grid-template-columns: repeat(3, 0.1fr);
