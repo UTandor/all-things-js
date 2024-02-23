@@ -51,13 +51,16 @@ const checkWinner = () => {
   let winner = "";
 
   for (let i = 0; i < board.length; i++) {
-    for (let j = 0; j < board.length; j++) {
-      console.log(board)
-      console.log(board[i][j], board[i + 1][j + 1], board[i + 2][j + 2]);
-      if ((board[i][j] === board[i + 1][j + 1]) === board[i + 2][j + 2]) {
+    for (let j = 0; j < board[i].length - 2; j++) {
+      if (board[i][j] !== '.' && board[i][j] === board[i][j + 1] && board[i][j] === board[i][j + 2]) {
         winner = board[i][j];
+        console.log("Horizontal Winner:", winner);
       }
-      break;
+
+      if (board[j][i] !== '.' && board[j][i] === board[j + 1][i] && board[j][i] === board[j + 2][i]) {
+        winner = board[j][i];
+        console.log("Vertical Winner:", winner);
+      }
     }
   }
 
@@ -68,7 +71,7 @@ const checkWinner = () => {
   }
 };
 
-const changeContents = (id) => {
+const changeContents = async (id) => {
   id = id.split("-");
   switch (board[id[1]][id[2]]) {
     case ".":
